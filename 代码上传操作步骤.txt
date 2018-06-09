@@ -1,0 +1,6 @@
+先在Bash上切换到代码所在的目录
+cd /E/threading
+再ls看看文件夹下的文件
+git add xx.py
+git commit -m "备注"
+git push origin master
