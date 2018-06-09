@@ -3,13 +3,14 @@ import re
 import xlwt
 import time
 import threading
+from tqdm import tqdm
 def JobPython(url):
     list11=[]
     list21=[]
     list31=[]
     list41=[]
     list51=[]
-    for i in range(1,50):
+    for i in tqdm(range(1,30)):
         response=urllib.request.urlopen(url+str(i)).read()
         list1=re.compile('class="t1 ">.*?<a target="_blank" title="(.*?)"',re.S).findall(response.decode('gbk'))
         list11.extend(list1)
@@ -43,7 +44,7 @@ def JobAnalyse(url):
     list31=[]
     list41=[]
     list51=[]
-    for i in range(1,50):
+    for i in tqdm(range(1,30)):
         response=urllib.request.urlopen(url+str(i)+'.html?').read()
         list1=re.compile('class="t1 ">.*?<a target="_blank" title="(.*?)"',re.S).findall(response.decode('gbk'))
         list11.extend(list1)
@@ -79,7 +80,7 @@ if __name__ == '__main__':
     endtime = time.time()
     dtime = endtime -starttime
     print("常规时间为：",dtime)
-#多线程一起跑，两个线程10次循环相差5s，循环20次，常规是50秒，多线程是37秒
+#多线程一起跑，两个线程10次循环相差5s，循环20次，常规是50秒，多线程是37秒,循环300次，常规是75秒，多线程是56秒
 t1 = threading.Thread(target=JobPython,args=('http://search.51job.com/jobsearch/search_result.php?fromJs=1&jobarea=030000%2C00&district=000000&funtype=0000&industrytype=00&issuedate=9&providesalary=99&keyword=Python&keywordtype=2&curr_page=',))
 t2 = threading.Thread(target=JobAnalyse,args=('https://search.51job.com/list/030000,000000,0000,00,9,99,%25E6%2595%25B0%25E6%258D%25AE%25E5%2588%2586%25E6%259E%2590,2,',))
 starttime = time.time()
