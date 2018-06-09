@@ -1,3 +1,10 @@
+一、新建项目时的步骤
+1、先在github上新建一个项目文件，如DownloadGongdanfujian
+2、在bash上切换到项目路径，一般默认为cd /E/pyproject,然后输入 git clone xx，git新建项目的地址如：https://github.com/zengyunda/DownloadGongdanfujian.git
+3、切换到新建项目文件夹内，之后就可以上传代码了
+
+
+二、代码上传步骤
 先在Bash上切换到代码所在的目录
 cd /E/threading
 再ls看看文件夹下的文件
