@@ -11,3 +11,9 @@ cd /E/threading
 git add xx.py
 git commit -m "备注"
 git push origin master
+
+三、项目名称变更
+如果在github上的名称改了，重新上传是会提示失败；
+需在本地输入git pull,将本地配置文件项目名称后缀修改；
+修改时的操作与Linux的vi编辑器一样
+修改完成后再上传即可！
